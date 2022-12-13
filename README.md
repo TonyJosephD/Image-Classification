@@ -47,11 +47,17 @@
 
 ###     Now that we're on the same page with this confusion matrix, we can see, looking down at the totals for our predictions, that our model is massively overpredicting doom, on nearly a 65-35 split, while the actual data is almost 50-50. This indicates that our model is overpredicting Doom quite strongly, which is true when we talk about the actual proportions of correct predictions. Out of all the Animal Crossing Images, our model only got around 2/3 of them correctly classified, while our model predicted over 90% of Doom images correctly. Despite this discrepancy seeming pretty dire, remember that our overall accuracy was nearly 80%, so the model is still quite usefull. It is doing better than guessing with both categories, it's just performing a lot stronger on Doom than Animal Crossing.
 
-## Conclusions and Takeaways
-
-### Liam will write this later
-
 ## Impact
 
-### Liam will write this later
+###     While our model is a simple, light-hearted one, there are a lot of implications to the type of modeling we're doing here. The most apparent implication is the use of multiple models in tandem, and using the judgement of one to help make the decision of another. It's hard enough to try and work through the kinds of biases that may exist in traditional machine learning models; understand where, when, and how our data was collected, as well as who was collecting it. Systematic biases make exist in datasets, and these can be passed on to models that train on them. Add in a second model, with its own biases, and now we've created a wider potential range for all sorts of biases to slip in. It's already difficult enough to scrub structured data of the kind of implicit biases that may exist; but images? Even ignoring unbalanced data and training sets, more can come in with the whole range of images a model may see one day, but may be on the fringes of what we expect when we first make it.
+
+###     That being said, it isn't all bad. Use of models in tandem, like we have used here, can introduce better assessment rates and better accuracy. In most settings today, it isn't a single machine or algorithm making all the decisions; its an ensemble of multiple models and decision making machines (including ourselves!) that come together to reach the final decision. We just need to understand that all components are important, and make an attempt to understand the limitations and biases that may be present in all of them, including ourselves.
+
+## Conclusion
+
+###     In our exploration, we used multiple models to try and explore an amusing problem space; can we identify what gaming subreddit a post came from? Our work with this technology was both interesting and enjoyable, as we got to bring together multiple components of both our own knowledge and things we learned in class to explore how we might approach real world problems we'll be faced with in our careers. Many problems in our world can't be boiled down to just a series of numeric metrics; we live in a messy world, full of messy people who do messy things. Sometimes its important to try and capture all aspects of a problem, be it structured, unstructured, or more latent, like sentiment or mood. Our brains are very good at this: we're social creatures with multiple senses to try and capture the essence of situations to make our decisions, so why shouldn't be try to emulate this same idea across machines? 
+
+###     Learning effective tactics for all aspects of the data pipeline were an enormous takeaway from this class. Understanding how to find and judge data before even importing it is an import skill when it comes to making meaningful models, as are the steps between finding and modeling. Exploring the data, visualizing, and talking about are all important aspects to not only our models, but the stories they tell and we tell with them. Making models is of course an important aspect, one covered in the course; but the before and after of making models is often more important that the model itself. Afterall, if we can't critically think about and rationalize our models, what good are they? Despite the comic nature of our subject matter, a lot of thinking had to go into how we build the model, and what it meant was it was trained. 
+
+###     And if nothing else, we now have a funny story about a wacky model we built.
 

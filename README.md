@@ -11,7 +11,7 @@
 
 ###     We utilize a Kaggle dataset found [here](https://www.kaggle.com/datasets/andrewmvd/doom-crossing), which is a collection of Reddit posts containing images that relate to either Animal Crossing or Doom. Both are video games, but Animal Crossing is Fun and Doom is ridiculous. 
 ### Looking at how our data is broken down, we can summarize the data into 3 basic categories, outside of what subreddit its from: there is a title for each post, a list of user engagement metrics, and an attached url and filename for the actual image posted to Reddit.
-# As such, as we began approaching how to handle our problem, we saw the opportunity to try and process *all* this data, as opposed to just making predictions off of the engagement metrics.
+### As such, as we began approaching how to handle our problem, we saw the opportunity to try and process *all* this data, as opposed to just making predictions off of the engagement metrics.
 
 ## Methods
 
@@ -31,11 +31,17 @@
 
 ###     Now how do our outputs work? We trained the algorithm to predict based off the image given whether it thought the image was from Animal Crossing or Doom. Why are we predicting the game now, when we said we wanted to include all the variables? The output of model isn't actually just a binary "one or the other" assessment, but rather two weights representing its belief that the image is from each, and it picks the one it has stronger confidence in to be our "decision." We decided to take these weights for the predictions for each model, and actually use that as a way to "process" what the image was about. That way, we now have variables representing what game the image (which was before just a sea of pixels!) is likely to be, and likely not to be, which could be passed into a traditional model.
 
-###     we've talked a lot about passing these assessments into a "traditional model" so what do we mean by that? We visualized the avenues the different data take to get processed in this chart below, which covers a lot of what we've discussed here:
+###     We've talked a lot about passing these assessments into a "traditional model" so what do we mean by that? We visualized the avenues the different data take to get processed in this chart below, which covers a lot of what we've discussed here:
 
 <img src="https://cdn.discordapp.com/attachments/1044291148560224339/1051968836116684881/workflow.jpg" alt="drawing"/>
 
 ###     Essentially, we're taking the now much simply outputs of the two previously unstructured data formats, and using them in tandem with the already-structured user metrics to make a decision on what games' subreddit the post is from, in a manner that includes *all* information on the post, structured or unstrucred, text or image or number.
+
+
+## Model Selection
+
+###     After getting our features prepared using ensemble methodology, we had to pick a final model to use for our prediction. In our model selection, we tested; Decision Tree Classifier, Random Forest, K-Nearest Neighbors, and Gradient Boosting Classifier. Because our target was binary we also chose to test Logistic Regression and Support Vector Machine models as they typically perform better with binary classification. Of the models we tested, Logistic Regression and Gradient Boosting were the most accurate at 79% and 78% accuracy respectively. 
+###    It was decided that the Gradient Boosting model would be **parameter tuned** as it was the highest performing model we had. The reason Logistic Regression was not parameter tuned is because it is a **linear model** and doesn't see large performance increases from parameter tuning unlike tree based ensemble models. The Gradient Boosting model was parameter tuned using a grid search cross validation method. This method does an estensive search for the optimal parameters for a model and evaluates based off of K-fold cross validation scores. Once the parameter tuning was finished, there was not a sufficient boost in performance for the Gradient Boosting model. This resulted in Logistic Regression being the model of choice for the final model.  
 
 ## Evaluation
 
